@@ -1,13 +1,17 @@
 function changeCity() {
   let city = prompt("What city do you live in?");
-  let currentTemperature = prompt("What is your current temperature");
-  let h1 = document.querySelector("h1");
-  if (currentTemperature < 0) {
-    h1.innerHTML = `😣 <br> Currently ${currentTemperature}° in ${city}`;
+  let temperature = prompt("What temperature is it?");
+  let emoji = document.querySelector(".sunny-cloudy");
+  let current = document.querySelector("h2");
+
+  if (temperature <= 0) {
+    emoji.innerHTML = "😣";
+    current.innerHTML = "Currently " + temperature + "°" + " in " + city;
   } else {
-    h1.innerHTML = `😊 <br> Currently ${currentTemperature}° in ${city}`;
+    emoji.innerHTML = "😊";
+    current.innerHTML = "Currently " + temperature + "°" + " in " + city;
   }
 }
 
-let clickButton = document.querySelector("button");
-clickButton.addEventListener("click", changeCity);
+let cityTemp = document.querySelector("button");
+cityTemp.addEventListener("click", changeCity);
